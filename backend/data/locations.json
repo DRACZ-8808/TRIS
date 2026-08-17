@@ -1,0 +1,322 @@
+[
+  {
+    "location_id": "J001",
+    "location_name": "Variety Square",
+    "zone": "Sitabuldi",
+    "latitude": 21.1458,
+    "longitude": 79.0882,
+    "police_station": "Sitabuldi Police Station"
+  },
+  {
+    "location_id": "J002",
+    "location_name": "Panchsheel Square",
+    "zone": "Sitabuldi",
+    "latitude": 21.1468,
+    "longitude": 79.0838,
+    "police_station": "Sitabuldi Police Station"
+  },
+  {
+    "location_id": "J003",
+    "location_name": "Jhansi Rani Square",
+    "zone": "Sitabuldi",
+    "latitude": 21.1425,
+    "longitude": 79.0847,
+    "police_station": "Sitabuldi Police Station"
+  },
+  {
+    "location_id": "J004",
+    "location_name": "GPO Square",
+    "zone": "Sitabuldi",
+    "latitude": 21.1439,
+    "longitude": 79.0864,
+    "police_station": "Sitabuldi Police Station"
+  },
+  {
+    "location_id": "J005",
+    "location_name": "Zero Mile",
+    "zone": "Sitabuldi",
+    "latitude": 21.1453,
+    "longitude": 79.0805,
+    "police_station": "Sitabuldi Police Station"
+  },
+  {
+    "location_id": "J006",
+    "location_name": "Munje Square",
+    "zone": "Sitabuldi",
+    "latitude": 21.1474,
+    "longitude": 79.091,
+    "police_station": "Sitabuldi Police Station"
+  },
+  {
+    "location_id": "J007",
+    "location_name": "Sadar Square",
+    "zone": "Sadar",
+    "latitude": 21.1638,
+    "longitude": 79.0792,
+    "police_station": "Sadar Police Station"
+  },
+  {
+    "location_id": "J008",
+    "location_name": "Law College Square",
+    "zone": "Sadar",
+    "latitude": 21.1558,
+    "longitude": 79.0682,
+    "police_station": "Sadar Police Station"
+  },
+  {
+    "location_id": "J009",
+    "location_name": "Ravi Nagar Square",
+    "zone": "Sadar",
+    "latitude": 21.1538,
+    "longitude": 79.0552,
+    "police_station": "Sadar Police Station"
+  },
+  {
+    "location_id": "J010",
+    "location_name": "Vidhan Bhavan Square",
+    "zone": "Sadar",
+    "latitude": 21.161,
+    "longitude": 79.082,
+    "police_station": "Sadar Police Station"
+  },
+  {
+    "location_id": "J011",
+    "location_name": "Cotton Market Square",
+    "zone": "Cotton Market",
+    "latitude": 21.1442,
+    "longitude": 79.0988,
+    "police_station": "Ganeshpeth Police Station"
+  },
+  {
+    "location_id": "J012",
+    "location_name": "Medical Square",
+    "zone": "Cotton Market",
+    "latitude": 21.1342,
+    "longitude": 79.0982,
+    "police_station": "Ganeshpeth Police Station"
+  },
+  {
+    "location_id": "J013",
+    "location_name": "Golibar Square",
+    "zone": "Cotton Market",
+    "latitude": 21.1482,
+    "longitude": 79.1022,
+    "police_station": "Ganeshpeth Police Station"
+  },
+  {
+    "location_id": "J014",
+    "location_name": "Lakadganj Square",
+    "zone": "Lakadganj",
+    "latitude": 21.1542,
+    "longitude": 79.1188,
+    "police_station": "Lakadganj Police Station"
+  },
+  {
+    "location_id": "J015",
+    "location_name": "Gandhi Putla Square",
+    "zone": "Lakadganj",
+    "latitude": 21.1502,
+    "longitude": 79.1088,
+    "police_station": "Lakadganj Police Station"
+  },
+  {
+    "location_id": "J016",
+    "location_name": "Mahal Square",
+    "zone": "Lakadganj",
+    "latitude": 21.1422,
+    "longitude": 79.1122,
+    "police_station": "Lakadganj Police Station"
+  },
+  {
+    "location_id": "J017",
+    "location_name": "Sakkardara Square",
+    "zone": "Sakkardara",
+    "latitude": 21.1212,
+    "longitude": 79.1138,
+    "police_station": "Sakkardara Police Station"
+  },
+  {
+    "location_id": "J018",
+    "location_name": "Manewada Square",
+    "zone": "Sakkardara",
+    "latitude": 21.1042,
+    "longitude": 79.1088,
+    "police_station": "Sakkardara Police Station"
+  },
+  {
+    "location_id": "J019",
+    "location_name": "Dighori Square",
+    "zone": "Sakkardara",
+    "latitude": 21.1182,
+    "longitude": 79.1388,
+    "police_station": "Sakkardara Police Station"
+  },
+  {
+    "location_id": "J020",
+    "location_name": "Indora Square",
+    "zone": "Indora",
+    "latitude": 21.1848,
+    "longitude": 79.0922,
+    "police_station": "Jaripatka Police Station"
+  },
+  {
+    "location_id": "J021",
+    "location_name": "Kadbi Chowk",
+    "zone": "Indora",
+    "latitude": 21.1738,
+    "longitude": 79.0888,
+    "police_station": "Jaripatka Police Station"
+  },
+  {
+    "location_id": "J022",
+    "location_name": "Kamal Chowk",
+    "zone": "Indora",
+    "latitude": 21.1788,
+    "longitude": 79.1038,
+    "police_station": "Jaripatka Police Station"
+  },
+  {
+    "location_id": "J023",
+    "location_name": "Ajni Square",
+    "zone": "Ajni",
+    "latitude": 21.1188,
+    "longitude": 79.0762,
+    "police_station": "Ajni Police Station"
+  },
+  {
+    "location_id": "J024",
+    "location_name": "Chhatrapati Square",
+    "zone": "Ajni",
+    "latitude": 21.1088,
+    "longitude": 79.0682,
+    "police_station": "Ajni Police Station"
+  },
+  {
+    "location_id": "J025",
+    "location_name": "Congress Nagar Square",
+    "zone": "Ajni",
+    "latitude": 21.1288,
+    "longitude": 79.0782,
+    "police_station": "Ajni Police Station"
+  },
+  {
+    "location_id": "J026",
+    "location_name": "Sonegaon Square",
+    "zone": "Sonegaon",
+    "latitude": 21.0968,
+    "longitude": 79.0552,
+    "police_station": "Sonegaon Police Station"
+  },
+  {
+    "location_id": "J027",
+    "location_name": "Khamla Square",
+    "zone": "Sonegaon",
+    "latitude": 21.1118,
+    "longitude": 79.0522,
+    "police_station": "Sonegaon Police Station"
+  },
+  {
+    "location_id": "J028",
+    "location_name": "Airport Square",
+    "zone": "Sonegaon",
+    "latitude": 21.0908,
+    "longitude": 79.0622,
+    "police_station": "Sonegaon Police Station"
+  },
+  {
+    "location_id": "J029",
+    "location_name": "Hingna T-Point",
+    "zone": "MIDC",
+    "latitude": 21.1128,
+    "longitude": 79.0112,
+    "police_station": "MIDC Police Station"
+  },
+  {
+    "location_id": "J030",
+    "location_name": "Wanadongri Square",
+    "zone": "MIDC",
+    "latitude": 21.1018,
+    "longitude": 78.9882,
+    "police_station": "MIDC Police Station"
+  },
+  {
+    "location_id": "J031",
+    "location_name": "Lokmanya Nagar Square",
+    "zone": "MIDC",
+    "latitude": 21.1068,
+    "longitude": 78.9992,
+    "police_station": "MIDC Police Station"
+  },
+  {
+    "location_id": "J032",
+    "location_name": "Kamptee Square",
+    "zone": "Kamptee",
+    "latitude": 21.2188,
+    "longitude": 79.1912,
+    "police_station": "Kamptee Police Station"
+  },
+  {
+    "location_id": "J033",
+    "location_name": "Kapsi Bridge",
+    "zone": "Kamptee",
+    "latitude": 21.1688,
+    "longitude": 79.1822,
+    "police_station": "Kamptee Police Station"
+  },
+  {
+    "location_id": "J034",
+    "location_name": "Dragon Palace Chowk",
+    "zone": "Kamptee",
+    "latitude": 21.2228,
+    "longitude": 79.1982,
+    "police_station": "Kamptee Police Station"
+  },
+  {
+    "location_id": "J035",
+    "location_name": "Yashodhara Nagar Square",
+    "zone": "Yashodhara Nagar",
+    "latitude": 21.1898,
+    "longitude": 79.1212,
+    "police_station": "Yashodhara Nagar Police Station"
+  },
+  {
+    "location_id": "J036",
+    "location_name": "Vaishno Devi Square",
+    "zone": "Yashodhara Nagar",
+    "latitude": 21.1828,
+    "longitude": 79.1352,
+    "police_station": "Yashodhara Nagar Police Station"
+  },
+  {
+    "location_id": "J037",
+    "location_name": "Automotive Square",
+    "zone": "Yashodhara Nagar",
+    "latitude": 21.1968,
+    "longitude": 79.0982,
+    "police_station": "Yashodhara Nagar Police Station"
+  },
+  {
+    "location_id": "J038",
+    "location_name": "Wathoda Square",
+    "zone": "Wathoda",
+    "latitude": 21.1418,
+    "longitude": 79.1462,
+    "police_station": "Wathoda Police Station"
+  },
+  {
+    "location_id": "J039",
+    "location_name": "Ring Road Chowk",
+    "zone": "Wathoda",
+    "latitude": 21.1308,
+    "longitude": 79.1412,
+    "police_station": "Wathoda Police Station"
+  },
+  {
+    "location_id": "J040",
+    "location_name": "Dighori T-Point",
+    "zone": "Wathoda",
+    "latitude": 21.1218,
+    "longitude": 79.1482,
+    "police_station": "Wathoda Police Station"
+  }
+]
