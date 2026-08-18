@@ -926,3 +926,59 @@ body {
   background-color: var(--color-red);
   color: #fff;
 }
+
+/* Mini Map Home Page Click Overlay */
+.map-click-overlay {
+  transition: background-color 0.3s ease;
+}
+
+.map-click-overlay .overlay-msg {
+  opacity: 0.85;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-click-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+}
+
+.map-click-overlay:hover .overlay-msg {
+  opacity: 1 !important;
+  transform: translateY(-2px);
+  background-color: #00259e !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Officer Marker Flashing */
+@keyframes pulse-marker-red-deploy {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.flashing-red {
+  animation: pulse-marker-red-deploy 1.5s infinite;
+}
+
+.map-click-overlay-deploy {
+  transition: background-color 0.3s ease;
+}
+
+.map-click-overlay-deploy .overlay-msg {
+  opacity: 0.85;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-click-overlay-deploy:hover {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+}
+
+.map-click-overlay-deploy:hover .overlay-msg {
+  opacity: 1 !important;
+  transform: translateY(-2px);
+  background-color: var(--color-green) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+

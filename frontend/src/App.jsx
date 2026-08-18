@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  LayoutDashboard, 
-  Map, 
-  UserCheck, 
-  Zap, 
-  PlayCircle, 
-  FileText, 
-  Sliders, 
-  Bell, 
+import {
+  LayoutDashboard,
+  Map,
+  UserCheck,
+  Zap,
+  PlayCircle,
+  FileText,
+  Sliders,
+  Bell,
   ShieldAlert,
   Search,
   BarChart2
@@ -24,7 +24,7 @@ import Settings from './components/Settings';
 function App() {
   const [activeTopTab, setActiveTopTab] = useState("Home / Command Center");
   const [activeLeftTab, setActiveLeftTab] = useState("Overview");
-  
+
   const [junctions, setJunctions] = useState([]);
   const [overviewData, setOverviewData] = useState({});
   const [reportsLogs, setReportsLogs] = useState([]);
@@ -33,12 +33,12 @@ function App() {
   // Live timer for top bar clock
   useEffect(() => {
     const updateTime = () => {
-      const options = { 
-        year: 'numeric', 
-        month: 'short', 
-        day: 'numeric', 
-        hour: '2-digit', 
-        minute: '2-digit', 
+      const options = {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
         second: '2-digit',
         hour12: false
       };
@@ -114,18 +114,18 @@ function App() {
   const renderLeftPanel = () => {
     switch (activeLeftTab) {
       case "Overview":
-        return <Overview data={overviewData} onTabChange={setActiveLeftTab} />;
+        return <Overview data={overviewData} junctions={junctions} onTabChange={setActiveLeftTab} />;
       case "Live map":
         return <LiveMap junctions={junctions} onOverride={handleOverride} />;
       case "Deployments":
         return <Deployments junctions={junctions} onOverride={handleOverride} />;
       case "Report Incidents":
         return (
-          <Incidents 
-            incidents={overviewData.incidents || []} 
-            junctions={junctions} 
-            onInject={handleInjectIncident} 
-            onClearAll={handleClearAllIncidents} 
+          <Incidents
+            incidents={overviewData.incidents || []}
+            junctions={junctions}
+            onInject={handleInjectIncident}
+            onClearAll={handleClearAllIncidents}
           />
         );
       case "Simulator":
@@ -135,7 +135,7 @@ function App() {
       case "Settings":
         return <Settings />;
       default:
-        return <Overview data={overviewData} onTabChange={setActiveLeftTab} />;
+        return <Overview data={overviewData} junctions={junctions} onTabChange={setActiveLeftTab} />;
     }
   };
 
@@ -191,17 +191,17 @@ function App() {
 
   return (
     <div className="app-container">
-      
+
       {/* Top Header Bar */}
       <div className="topbar">
         <div className="topbar-left">
           <div className="police-logo">NP</div>
           <div className="topbar-title-block">
             <h1>Nagpur Traffic Intelligence</h1>
-            <p>Traffic Risk & Police Allocation System</p>
+            <p>TRAFFIC RISK INTELLIGENCE SYSTEM</p>
           </div>
         </div>
-        
+
         <div className="topbar-right">
           <div className="status-indicator">
             <span className="status-dot"></span>
@@ -225,9 +225,9 @@ function App() {
 
       {/* Nav Tab Buttons */}
       <div className="nav-tabs">
-        {["Home / Command Center", "Junctions", "Analytics", "Violations"].map(tab => (
-          <button 
-            key={tab} 
+        {["Home / Command Center", "Junctions", "Analytics"].map(tab => (
+          <button
+            key={tab}
             className={`tab-btn ${activeTopTab === tab ? 'active' : ''}`}
             onClick={() => setActiveTopTab(tab)}
           >
@@ -238,56 +238,56 @@ function App() {
 
       {/* Main Workspace Frame */}
       <div className="workspace-container">
-        
+
         {activeTopTab === "Home / Command Center" ? (
           <>
             {/* Sidebar Menu */}
             <div className="sidebar">
               <div className="sidebar-menu">
-                <button 
+                <button
                   className={`sidebar-item ${activeLeftTab === 'Overview' ? 'active' : ''}`}
                   onClick={() => setActiveLeftTab("Overview")}
                 >
                   <LayoutDashboard size={16} /> Overview
                 </button>
-                <button 
+                <button
                   className={`sidebar-item ${activeLeftTab === 'Live map' ? 'active' : ''}`}
                   onClick={() => setActiveLeftTab("Live map")}
                 >
                   <Map size={16} /> Live map
                 </button>
-                <button 
+                <button
                   className={`sidebar-item ${activeLeftTab === 'Deployments' ? 'active' : ''}`}
                   onClick={() => setActiveLeftTab("Deployments")}
                 >
                   <UserCheck size={16} /> Deployments
                 </button>
-                <button 
+                <button
                   className={`sidebar-item ${activeLeftTab === 'Report Incidents' ? 'active' : ''}`}
                   onClick={() => setActiveLeftTab("Report Incidents")}
                 >
                   <Zap size={16} /> Report Incidents
                 </button>
-                <button 
+                <button
                   className={`sidebar-item ${activeLeftTab === 'Simulator' ? 'active' : ''}`}
                   onClick={() => setActiveLeftTab("Simulator")}
                 >
                   <PlayCircle size={16} /> Simulator
                 </button>
-                <button 
+                <button
                   className={`sidebar-item ${activeLeftTab === 'Audit Logs' ? 'active' : ''}`}
                   onClick={() => setActiveLeftTab("Audit Logs")}
                 >
                   <FileText size={16} /> Audit Logs
                 </button>
-                <button 
+                <button
                   className={`sidebar-item ${activeLeftTab === 'Settings' ? 'active' : ''}`}
                   onClick={() => setActiveLeftTab("Settings")}
                 >
                   <Sliders size={16} /> Settings
                 </button>
               </div>
-              
+
               <div className="sidebar-footer">
                 Simulated data · Human approval required for deployment actions.
               </div>
@@ -298,12 +298,11 @@ function App() {
           </>
         ) : (
           /* Stub pages content */
-          renderLeftPanel // wait, no, render stub pages
+          null
         )}
 
         {activeTopTab === "Junctions" && renderStubPage("Junctions", "View, filter, and inspect city traffic junctions list.")}
         {activeTopTab === "Analytics" && renderStubPage("Analytics", "Strategic analysis of city-wide average congestion, speed, and accident trends.")}
-        {activeTopTab === "Violations" && renderStubPage("Violations", "E-challan citation database and automated penalty status.")}
 
       </div>
     </div>

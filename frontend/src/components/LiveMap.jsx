@@ -71,7 +71,7 @@ const LiveMap = ({ junctions, onOverride }) => {
 
   return (
     <div className="view-panel" style={{ padding: '24px 0 0 24px', flex: 1, flexDirection: 'row', gap: '0' }}>
-      
+
       {/* Map Column */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '16px', paddingRight: '24px', paddingBottom: '24px' }}>
         <div className="view-header">
@@ -88,9 +88,9 @@ const LiveMap = ({ junctions, onOverride }) => {
         </div>
 
         <div className="map-container-wrapper" style={{ flex: 1, minHeight: '400px' }}>
-          <MapContainer 
-            center={[21.1458, 79.0882]} 
-            zoom={12} 
+          <MapContainer
+            center={[21.1458, 79.0882]}
+            zoom={12}
             scrollWheelZoom={true}
             style={{ height: '100%', width: '100%' }}
           >
@@ -111,7 +111,7 @@ const LiveMap = ({ junctions, onOverride }) => {
               >
                 <Popup>
                   <div style={{ color: '#000', fontWeight: 'bold' }}>
-                    {j.location_name}<br/>
+                    {j.location_name}<br />
                     Risk Level: {j.risk_level} ({j.risk_score})
                   </div>
                 </Popup>
@@ -223,29 +223,31 @@ const LiveMap = ({ junctions, onOverride }) => {
                   <button className="btn-override accept" onClick={() => handleAction('Accept')}>
                     Accept System Recommendation
                   </button>
-                  
+
                   <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                    <input 
-                      type="number" 
-                      className="form-input" 
+                    <input
+                      type="number"
+                      className="form-input"
                       style={{ width: '60px', padding: '6px' }}
                       value={modifyVal}
-                      onChange={(e) => setModifyVal(parseInt(e.target.value) || 0)}
+                      min="0"
+                      max="10"
+                      onChange={(e) => setModifyVal(Math.min(10, Math.max(0, parseInt(e.target.value) || 0)))}
                     />
-                    <button className="btn-override modify" style={{ flex: 1 }} onClick={() => handleAction('Modify', modifyVal)}>
+                    <button className="btn-override modify" style={{ flex: 1 }} onClick={() => handleAction('Modify', Math.min(10, modifyVal))}>
                       Modify & Reallocate
                     </button>
                   </div>
-                  
+
                   <button className="btn-override reject" onClick={() => handleAction('Reject')}>
                     Reject Recommendation
                   </button>
 
                   <div className="form-group" style={{ marginTop: '10px' }}>
                     <label>Log justification note:</label>
-                    <input 
-                      type="text" 
-                      className="form-input" 
+                    <input
+                      type="text"
+                      className="form-input"
                       placeholder="e.g. Cleared lane, dispatched unit"
                       value={commentVal}
                       onChange={(e) => setCommentVal(e.target.value)}

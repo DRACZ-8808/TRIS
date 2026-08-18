@@ -53,7 +53,7 @@ const Deployments = ({ junctions, onOverride }) => {
         <h3 style={{ fontFamily: 'Outfit, sans-serif', fontSize: '16px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <ArrowUpDown size={18} color="var(--accent-blue)" /> Force Deployment Comparison Summary ({selectedZone} Zone)
         </h3>
-        
+
         <div className="grid-4" style={{ gap: '16px', marginBottom: '16px' }}>
           <div style={{ background: 'rgba(255,255,255,0.01)', padding: '12px', borderRadius: '6px', border: '1px solid var(--border-light)' }}>
             <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Baseline Deployed</span>
@@ -66,12 +66,22 @@ const Deployments = ({ junctions, onOverride }) => {
           <div style={{ background: 'rgba(255,255,255,0.01)', padding: '12px', borderRadius: '6px', border: '1px solid var(--border-light)' }}>
             <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Officer Strength Pool</span>
             <div style={{ fontSize: '20px', fontWeight: 700, marginTop: '4px' }}>
-              {selectedZone === "All" ? 43 * 12 : 43} Officers Max
+              {selectedZone === "All" ? 150 : 12.5} Officers Max
             </div>
           </div>
-          <div style={{ background: 'rgba(239, 68, 68, 0.05)', padding: '12px', borderRadius: '6px', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-            <span style={{ fontSize: '11px', color: 'var(--color-red)' }}>Unmanned Junctions</span>
-            <div style={{ fontSize: '20px', fontWeight: 700, color: 'var(--color-red)', marginTop: '4px' }}>{unmannedCount} Locations</div>
+          <div style={{
+            background: unmannedCount === 0 ? 'rgba(16, 185, 129, 0.05)' : 'rgba(239, 68, 68, 0.05)',
+            padding: '12px',
+            borderRadius: '6px',
+            border: unmannedCount === 0 ? '1px solid rgba(16, 185, 129, 0.2)' : '1px solid rgba(239, 68, 68, 0.2)'
+          }}>
+            <span style={{ fontSize: '11px', color: unmannedCount === 0 ? 'var(--color-green)' : 'var(--color-red)' }}>Unmanned Junctions</span>
+            <div style={{
+              fontSize: '20px',
+              fontWeight: 700,
+              color: unmannedCount === 0 ? 'var(--color-green)' : 'var(--color-red)',
+              marginTop: '4px'
+            }}>{unmannedCount} Locations</div>
           </div>
         </div>
 
@@ -79,11 +89,11 @@ const Deployments = ({ junctions, onOverride }) => {
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: 'var(--text-muted)', marginBottom: '6px' }}>
             <span>Deployment efficiency alignment</span>
-            <span>{Math.round((totalRecommended / (selectedZone === "All" ? 516 : 43)) * 100)}% utilization</span>
+            <span>{Math.round((totalRecommended / (selectedZone === "All" ? 120 : 10)) * 100)}% utilization</span>
           </div>
           <div style={{ height: '8px', background: 'var(--bg-primary)', borderRadius: '4px', overflow: 'hidden', display: 'flex' }}>
-            <div style={{ width: `${(totalPresent / 516) * 100}%`, background: 'var(--text-muted)' }}></div>
-            <div style={{ width: `${Math.abs(totalRecommended - totalPresent) / 516 * 100}%`, background: 'var(--accent-blue)' }}></div>
+            <div style={{ width: `${(totalPresent / 120) * 100}%`, background: 'var(--text-muted)' }}></div>
+            <div style={{ width: `${Math.abs(totalRecommended - totalPresent) / 120 * 100}%`, background: 'var(--accent-blue)' }}></div>
           </div>
         </div>
       </div>
@@ -91,7 +101,7 @@ const Deployments = ({ junctions, onOverride }) => {
       {/* Ranked List Grid */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <h3 style={{ fontFamily: 'Outfit, sans-serif', fontSize: '18px' }}>Priority Risk Standings</h3>
-        
+
         {sortedJunctions.map((j, index) => {
           const rankNum = String(index + 1).padStart(2, '0');
           const riskClass = j.risk_level.toLowerCase();
@@ -99,7 +109,7 @@ const Deployments = ({ junctions, onOverride }) => {
           return (
             <div key={j.location_id} className={`dashboard-card`} style={{ padding: '16px', borderLeft: `5px solid var(--color-${riskClass})` }}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center', justifyContent: 'space-between' }}>
-                
+
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, minWidth: '250px' }}>
                   <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: '20px', fontWeight: 800, color: 'var(--text-muted)' }}>
                     {rankNum}
@@ -127,7 +137,7 @@ const Deployments = ({ junctions, onOverride }) => {
                   <div style={{ textAlign: 'right', minWidth: '130px' }}>
                     <div style={{ color: 'var(--text-muted)', fontSize: '11px' }}>Officers Deployed:</div>
                     <div style={{ fontSize: '14px', marginTop: '2px' }}>
-                      Present: <strong style={{ color: j.officers_present === 0 ? 'var(--color-red)' : 'inherit' }}>{j.officers_present}</strong> · 
+                      Present: <strong style={{ color: j.officers_present === 0 ? 'var(--color-red)' : 'inherit' }}>{j.officers_present}</strong> ·
                       Recommended: <strong style={{ color: 'var(--color-green)' }}>{j.recommended_officers}</strong>
                     </div>
                   </div>
@@ -140,8 +150,11 @@ const Deployments = ({ junctions, onOverride }) => {
                       Accept
                     </button>
                     <button className="btn-override modify" style={{ padding: '6px' }} onClick={() => {
-                      const val = prompt("Enter custom number of officers to deploy:", j.recommended_officers);
-                      if (val !== null) handleAction(j.location_id, 'Modify', parseInt(val) || 0);
+                      const val = prompt("Enter custom number of officers to deploy (Max 10):", Math.min(10, j.recommended_officers));
+                      if (val !== null) {
+                        const parsedVal = Math.min(10, Math.max(0, parseInt(val) || 0));
+                        handleAction(j.location_id, 'Modify', parsedVal);
+                      }
                     }}>
                       Modify
                     </button>
@@ -149,9 +162,9 @@ const Deployments = ({ junctions, onOverride }) => {
                       Reject
                     </button>
                   </div>
-                  <input 
-                    type="text" 
-                    className="form-input" 
+                  <input
+                    type="text"
+                    className="form-input"
                     placeholder="Log justification comment..."
                     style={{ fontSize: '11px', padding: '4px 8px' }}
                     value={commentInputs[j.location_id] || ""}
