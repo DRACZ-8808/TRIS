@@ -21,6 +21,8 @@ import Simulator from './components/Simulator';
 import Reports from './components/Reports';
 import Settings from './components/Settings';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 function App() {
   const [activeTopTab, setActiveTopTab] = useState("Home / Command Center");
   const [activeLeftTab, setActiveLeftTab] = useState("Overview");
@@ -51,17 +53,17 @@ function App() {
 
   // Fetch live dashboard states from express server
   const fetchState = () => {
-    fetch('http://localhost:5000/api/junctions')
+    fetch(`${API_URL}/api/junctions`)
       .then(res => res.json())
       .then(data => setJunctions(data))
       .catch(err => console.error("Error fetching junctions:", err));
 
-    fetch('http://localhost:5000/api/overview')
+    fetch(`${API_URL}/api/overview`)
       .then(res => res.json())
       .then(data => setOverviewData(data))
       .catch(err => console.error("Error fetching overview:", err));
 
-    fetch('http://localhost:5000/api/reports')
+    fetch(`${API_URL}/api/reports`)
       .then(res => res.json())
       .then(data => setReportsLogs(data))
       .catch(err => console.error("Error fetching reports:", err));
@@ -75,7 +77,7 @@ function App() {
 
   // API Mutators
   const handleInjectIncident = (payload) => {
-    fetch('http://localhost:5000/api/incidents', {
+    fetch(`${API_URL}/api/incidents`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -86,7 +88,7 @@ function App() {
   };
 
   const handleClearAllIncidents = () => {
-    fetch('http://localhost:5000/api/incidents', {
+    fetch(`${API_URL}/api/incidents`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -95,7 +97,7 @@ function App() {
   };
 
   const handleOverride = (locationId, action, value, comment) => {
-    fetch('http://localhost:5000/api/overrides', {
+    fetch(`${API_URL}/api/overrides`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

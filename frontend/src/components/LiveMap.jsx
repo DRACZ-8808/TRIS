@@ -14,6 +14,8 @@ const ChangeMapView = ({ coords }) => {
   return null;
 };
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const LiveMap = ({ junctions, onOverride }) => {
   const [selectedJunction, setSelectedJunction] = useState(null);
   const [selectedZone, setSelectedZone] = useState("All");
@@ -26,7 +28,7 @@ const LiveMap = ({ junctions, onOverride }) => {
   // Fetch detailed junction data when clicked
   useEffect(() => {
     if (selectedJunction) {
-      fetch(`http://localhost:5000/api/junctions/${selectedJunction.location_id}`)
+      fetch(`${API_URL}/api/junctions/${selectedJunction.location_id}`)
         .then(res => res.json())
         .then(data => {
           setJDetails(data);

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Play, RotateCcw, AlertTriangle, ArrowRight, ArrowUp, ArrowDown } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const Simulator = ({ junctions }) => {
   const [targetId, setTargetId] = useState("");
   const [scenarioType, setScenarioType] = useState("Road accident");
@@ -35,7 +37,7 @@ const Simulator = ({ junctions }) => {
       };
     }
 
-    fetch('http://localhost:5000/api/simulate', {
+    fetch(`${API_URL}/api/simulate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
